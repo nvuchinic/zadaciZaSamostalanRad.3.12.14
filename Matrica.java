@@ -112,6 +112,98 @@ public class Matrica {
 		return matrica3;
 	}
 	
+	/**
+	 * funkcija koja prima dvije matrice, ako su razlicitih dimenzija izbacuje se izuzetak,
+	 * inace se sabiraju
+	 * @param matrica1 prva matrica
+	 * @param matrica2 druga matrica
+	 * @return matrica kao rezultat sabiranja matrica parametara
+	 */
+	public static double[][] sabiranje(double[][] matrica1, double[][] matrica2){
+		if((matrica1.length!=matrica2.length)||(matrica1[0].length!=matrica2[0].length)){
+			throw new IllegalArgumentException("Matrice nije moguce sabrati, razlicitih su dimenzija!");
+		}
+		else{
+		int red=matrica1.length;
+		int kol=matrica1[0].length;
+		double[][] matrica3=new double[matrica1.length][matrica1[0].length];
+		for(int i=0;i<red;i++){
+			for(int j=0;j<kol;j++){
+				matrica3[i][j]=matrica1[i][j]+matrica2[i][j];
+			}
+		}
+		return matrica3;}
+	}
+	
+	/**
+	 * funkcija koja prima dvije matrice, ako su razlicitih dimenzija izbacuje se izuzetak,
+	 * inace se oduzimaju
+	 * @param matrica1 prva matrica
+	 * @param matrica2 druga matrica
+	 * @return matrica kao rezultat oduzimanja matrica parametara
+	 */
+	public static double[][] oduzimanje(double[][] matrica1, double[][] matrica2){
+		if((matrica1.length!=matrica2.length)||(matrica1[0].length!=matrica2[0].length)){
+			throw new IllegalArgumentException("Matrice nije moguce oduzeti, razlicitih su dimenzija!");
+		}
+		else{
+		int red=matrica1.length;
+		int kol=matrica1[0].length;
+		double[][] matrica3=new double[matrica1.length][matrica1[0].length];
+		for(int i=0;i<red;i++){
+			for(int j=0;j<kol;j++){
+				matrica3[i][j]=matrica1[i][j]-matrica2[i][j];
+			}
+		}
+		return matrica3;}
+	}
+	
+	/**
+	 * funkcija koja prima dvije matrice, ako su razlicitih dimenzija izbacuje se izuzetak,
+	 * inace se mnoze(elementi reda jedne sa elementima kolone druge matrice
+	 * @param matrica1 prva matrica
+	 * @param matrica2 druga matrica
+	 * @return matrica kao rezultat mnozenja matrica parametara
+	 */
+	public static double[][] mnozenje(double[][] matrica1, double[][] matrica2){
+		double[][] matrica3;
+		if(matrica1[0].length!=matrica2.length){
+			throw new IllegalArgumentException("Matrice nije moguce mnoziti, broj kolona prve ne odgovara broju redova druge!");
+		}
+		else{
+			int m=matrica1.length;
+			int n=matrica1[0].length;
+			int k=matrica2[0].length;
+		
+			matrica3=new double[m][k];			
+			for(int i=0;i< m-1;i++){
+			for(int j=0;j< k-1; j++){
+			 matrica3[i][j]=0;
+			for(int l=0; l< n-1; l++){
+			 matrica3[i][j]+=matrica1[i][l]*matrica2[l][j];
+			}
+			}
+			}
+			}
+		return matrica3;
+	}
+	
+	/**
+	 * funkcija koja prima matricu i transponira je, odnosno cini da elementi reda postanu elementi kolone i obratno.
+	 * @param matrica matrica
+	 * @return transponirana matrica
+	 */
+	public static int[][] transponuj(int[][] matrica){
+		int vel=matrica.length;
+		int[][] matricaT=new int[vel][vel];
+		for (int i=0;i<vel;i++){
+			for(int j=0;j<vel;j++){
+				matricaT[i][j]=matrica[j][i];
+			}
+		}
+		return matricaT;
+	}
+	
 public static void main(String[] args) {
 	int red,kol;
 	//System.out.println("Unesite broj redova i kolona matrice:");
