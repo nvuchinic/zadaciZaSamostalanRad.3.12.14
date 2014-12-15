@@ -205,28 +205,61 @@ public class Matrica {
 	}
 	
 public static void main(String[] args) {
-	int red,kol;
-	//System.out.println("Unesite broj redova i kolona matrice:");
-	//red=TextIO.getInt();
-	//kol=TextIO.getInt();
+	int red, kol,red2,kol2;
+	char op, strC;
+	String strBr=new String();
+	TextReader data =new TextReader(new FileReader("d:\\FileZaCitanje.txt"));
+	red=data.getInt();
+	System.out.println(red);
+	kol=data.getInt();
+	System.out.println(kol);
+	int[][] matrica=new int[red][kol];
+	for(int i=0;i<red;i++){
+		for(int j=0;j<kol;j++){
+			 { 
 
-	/*int[][] matrica1=new int[red][kol];
-	int[][] matrica2=new int[red][kol];*/
-	int[][] matrica1=new int[][]{{1,0},{2,5},{0,3}};
-	int[][] matrica2=new int[][]{{2,0,3},{1,-1,0}};
-	int[][] matrica3=new int[matrica1.length][matrica2[0].length];
-	matrica3=mnozenje(matrica1, matrica2);
-	/*matrica1=kreirajMatricu(red, kol);
-	System.out.println("Matrica 1");
-	ispisiMatricu(matrica1);
-	matrica2=kreirajMatricu(red, kol);
-	System.out.println("Matrica 2");
-	ispisiMatricu(matrica2);
-	int[][] matrica3=new int[red][kol];
-	matrica3=sabiranje(matrica1, matrica2);
-	System.out.println("Matrica 3(matrica 1+matrica 2");
-	ispisiMatricu(matrica3);*/
-	ispisiMatricu(matrica3);
+				int br = data.getInt();
+			matrica[i][j]=br;
+			//System.out.println(br);
+			System.out.print(matrica[i][j]+" ");
+		//}
+		}
+	}
+	}
+	System.out.println("\n");
+for(int i=0;i<red;i++){
+		System.out.println();
+		for(int j=0;j<kol;j++){
+			System.out.print(matrica[i][j]+" ");
+		}
+}
+
+	red2=data.getInt();
+	System.out.println();
+	System.out.println(red2);
+	kol2=data.getInt();
+	System.out.println(kol2);
+	int[][] matrica2=new int[red2][kol2];
+	
+	for(int i2=0;i2<red2;i2++){
+		for(int j2=0;j2<kol2;j2++){
+			 { 
+				 int br = data.getInt();
+				 matrica2[i2][j2]=br;
+			//System.out.println(br);
+			//System.out.print(matrica[i2][j2]+" ");
+		//}
+		}
+	}
+	}
+
+for(int i2=0;i2<red2;i2++){
+		System.out.println();
+		for(int j2=0;j2<kol2;j2++){
+			System.out.print(matrica2[i2][j2]+" ");
+		}
+}
+	op=data.getlnChar();
 
 	
 }
